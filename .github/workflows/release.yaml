@@ -9,6 +9,9 @@ jobs:
   # Aggregate all the assets and ship a release
   release:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     env:
       OLLAMA_SKIP_IMAGE_BUILD: '1'
       PUSH: '1'
