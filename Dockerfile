@@ -61,7 +61,7 @@ ARG CGO_CFLAGS
 RUN go build .
 
 # oneAPI images are much larger so we keep it distinct from the CPU/CUDA image
-FROM --platform=linux/amd64 intel/oneapi-runtime:2024.1.0-devel-ubuntu22.04 as runtime-oneapi
+FROM --platform=linux/amd64 intelanalytics/ipex-llm-inference-cpp-xpu:2.1.0-SNAPSHOT as runtime-oneapi
 COPY --from=build-amd64 /go/src/github.com/jmorganca/ollama/ollama /bin/ollama
 EXPOSE 11434
 ENV OLLAMA_HOST 0.0.0.0
